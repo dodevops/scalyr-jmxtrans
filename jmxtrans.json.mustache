@@ -1,0 +1,24 @@
+{
+    "servers": [ {
+        "host": "localhost",
+        "port": "{{JMX_PORT}}",
+        "ssl": false,
+        {{#JMX_USERNAME}}"username": "{{JMX_USERNAME}}",{{/JMX_USERNAME}}
+        {{#JMX_PASSWORD}}"password": "{{JMX_PASSWORD}}",{{/JMX_PASSWORD}}
+        "queries": [
+            {{#JMX_QUERIES}}
+            {{COMMA_IF_NOT_FIRST}}
+            {
+                "obj": "{{GET_OBJ .}}",
+                "attr": {{GET_ATTR .}},
+                {{GET_RESULTALIAS .}}
+                "outputWriters": [ {
+                    "@class" : "com.googlecode.jmxtrans.model.output.GraphiteWriter",
+                    "port" : 2003,
+                    "host" : "localhost"
+                }]
+            }
+            {{/JMX_QUERIES}}
+        ]
+    } ]
+}
