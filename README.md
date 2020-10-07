@@ -1,5 +1,7 @@
 # Scalyr JMX fetching
 
+![Docker Build Status](https://img.shields.io/docker/build/dodevops/scalyr-jmxtrans) ![Docker Image Version (latest by date)](https://img.shields.io/docker/v/dodevops/scalyr-jmxtrans) ![Docker Pulls](https://img.shields.io/docker/pulls/dodevops/scalyr-jmxtrans)
+
 ## Introduction
 
 This repository holds a Dockerized solution for fetching JMX metrics and 
